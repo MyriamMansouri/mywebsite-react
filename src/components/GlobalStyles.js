@@ -3,14 +3,14 @@ import { Global, css } from "@emotion/core";
 import { useTheme } from "emotion-theming";
 
 const globalStyle = (fontFamily) => {
-    return (css`
+  return css`
     html,
-    body {
-      cursor: none;
-      font-family: ${fontFamily}
+    body,
+    h1 {
+      font-family: ${fontFamily};
     }
-  
-    f html,
+
+    html,
     body,
     div,
     span,
@@ -133,12 +133,12 @@ const globalStyle = (fontFamily) => {
       border-collapse: collapse;
       border-spacing: 0;
     }
-  `)
-} 
+  `;
+};
 
-const GlobalStyles = ({ children }) => {
+const GlobalStyles = () => {
   const theme = useTheme();
-  return <Global styles={globalStyle(theme.fonts.body)}>{children}</Global>;
+  return <Global styles={globalStyle(theme.fonts.body)} />;
 };
 
 export default GlobalStyles;

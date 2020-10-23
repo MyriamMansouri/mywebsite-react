@@ -1,16 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom";
-
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import CustomThemeProvider from "./components/CustomThemeProvider";
 import GlobalStyles from "./components/GlobalStyles";
+import Cursor from "./components/Cursor";
 
 ReactDOM.render(
   <React.StrictMode>
     <CustomThemeProvider>
       <GlobalStyles />
       <App />
+      <Cursor/>
     </CustomThemeProvider>
   </React.StrictMode>,
   document.getElementById("root")

@@ -3,12 +3,17 @@ import { Flex, Text, Box } from "rebass";
 import Nav from "./Nav";
 
 const Header = () => {
+  const style = {
+    bg: "secondary",
+    px: [3, 4, 5],
+    py: [2, 3, 4],
+    alignItems: "center",
+  };
+
   return (
     <header>
-      <Flex variant="header" alignItems="center">
-        <Text fontWeight="bold">
-          M
-        </Text>
+      <Flex sx={style}>
+        <Text fontWeight="bold">M</Text>
         <Box mx="auto" />
         <Nav />
       </Flex>
