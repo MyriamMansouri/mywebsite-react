@@ -16,6 +16,11 @@ const CustomThemeProvider = ({ children }) => {
       body: "Oswald, sans-serif",
       heading: "inherit",
     },
+    variants: {
+      link: {
+        textDecoration:'none'
+      }
+    }
   };
 
   return <ThemeProvider theme={theme}>{children}</ThemeProvider>;

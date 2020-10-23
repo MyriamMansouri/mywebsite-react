@@ -23,7 +23,8 @@ const Container = styled.div`
 
   &.cursor--link-hovered {
     transform: translate(-50%, -50%) scale(3);
-    background-color: ${(props) => props.accent};
+
+    background-color:${(props) => props.accent};
   }
   &.cursor--clicked {
     transform: translate(-50%, -50%) scale(0.5);
@@ -52,7 +53,7 @@ const Cursor = () => {
   }, []);
 
   const handleLinkHoverEvents = () => {
-    document.querySelectorAll("a, div.hero-title").forEach((el) => {
+    document.querySelectorAll(" a,div.hero-title").forEach((el) => {
       el.addEventListener("mouseover", () => setLinkHovered(true));
       el.addEventListener("mouseout", () => setLinkHovered(false));
     });
