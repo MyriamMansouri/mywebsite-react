@@ -16,12 +16,14 @@ const Hero = () => {
     flexDirection: "column",
     alignItems: "center",
   };
+
+  const heroTitle = ['Myriam','Mansouri']
   return (
     <Section sx={styleSection}>
       <Heading sx={styleHeading}>
         <Flex sx={styleFlex}>
-          <Text>Myriam</Text>
-          <Text>Mansouri</Text>
+          {heroTitle.map(el=><Text className="hero-title">{el}</Text>)}
+
         </Flex>
       </Heading>
     </Section>

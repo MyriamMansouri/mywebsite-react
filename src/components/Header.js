@@ -4,7 +4,7 @@ import Nav from "./Nav";
 
 const Header = () => {
   const style = {
-    bg: "secondary",
+    bg: "primary",
     px: [3, 4, 5],
     py: [2, 3, 4],
     alignItems: "center",
