@@ -2,6 +2,7 @@ import React from "react";
 import { Global, css } from "@emotion/core";
 import { useTheme } from "emotion-theming";
 
+
 const globalStyle = (fontFamily) => {
   return css`
     html,
@@ -10,6 +11,9 @@ const globalStyle = (fontFamily) => {
       font-family: ${fontFamily};
     }
 
+a:hover {
+  cursor:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='60' viewport='0 0 100 100' style='fill:black;font-size:34px;'><text y='50%'>👆</text></svg>") 16 0,auto; /*!emojicursor.app*/
+}
     html,
     body,
     div,
