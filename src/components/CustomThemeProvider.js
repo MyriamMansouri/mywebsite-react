@@ -11,7 +11,7 @@ const CustomThemeProvider = ({ children }) => {
       accent: '#ff3d3d'
     },
     space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
-    fontSizes: [12, 14, 16, 24, 32, 40, 100, 128,176],
+    fontSizes: [12, 14, 16, 24, 40, 60, 100, 128,176],
     fonts: {
       body: "Oswald, sans-serif",
       heading: "inherit",

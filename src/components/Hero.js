@@ -9,7 +9,7 @@ const Hero = () => {
   const styleHeading = {
     color: "secondary",
     mx: "auto",
-    fontSize: [6, 7, 8],
+    fontSize: [5, 7, 8],
   };
   const styleFlex = {
     flexWrap: "wrap",
@@ -20,10 +20,9 @@ const Hero = () => {
   const heroTitle = ['Myriam','Mansouri']
   return (
     <Section sx={styleSection}>
-      <Heading sx={styleHeading}>
+      <Heading sx={styleHeading} as="h1">
         <Flex sx={styleFlex}>
           {heroTitle.map(el=><Text className="hero-title">{el}</Text>)}
-
         </Flex>
       </Heading>
     </Section>

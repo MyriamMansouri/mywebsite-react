@@ -13,7 +13,7 @@ const Container = styled.div`
   pointer-events: none;
   z-index: 9999;
   mix-blend-mode: darken;
-  transition: all 150ms ease;
+  transition: all 450ms ease;
   transition-property: opacity, background-color, transform, mix-blend-mode;
   left: ${(props) => props.left};
   top: ${(props) => props.top};
@@ -22,14 +22,34 @@ const Container = styled.div`
   }
 
   &.cursor--link-hovered {
-    transform: translate(-50%, -50%) scale(3);
-
-    background-color:${(props) => props.accent};
+    transform: translate(-50%, -50%) scale(2);
+    background-color: ${(props) => props.accent};
   }
+  
   &.cursor--clicked {
+    width: 10px;
+    height: 10px;
     transform: translate(-50%, -50%) scale(0.5);
     mix-blend-mode: normal;
-    background-color: #fc2727
+    background-color: #fc2727;
+    animation: vibrate 1s infinite;
+  }
+  &.cursor--hero-hovered {
+    transform: translate(-50%, -50%) scale(7);
+    animation: color-change 500ms ease infinite;
+    transition: all 450ms ease;
+  }
+  @keyframes color-change {
+    0% {
+      background-color: blue;
+    }
+    25% {
+      background-color: yellow;
+     
+    }
+    50% {
+      background-color: ${(props) => props.accent};
+    }
   }
 `;
 
@@ -42,7 +62,7 @@ const Cursor = () => {
   const [hidden, setHidden] = useState(false);
   const [clicked, setClicked] = useState(false);
   const [linkHovered, setLinkHovered] = useState(false);
-
+  const [heroHovered, setHeroHovered] = useState(false);
   const theme = useTheme();
   const prevPosition = usePrevious(position);
 
@@ -53,9 +73,13 @@ const Cursor = () => {
   }, []);
 
   const handleLinkHoverEvents = () => {
-    document.querySelectorAll(" a,div.hero-title").forEach((el) => {
+    document.querySelectorAll(" a").forEach((el) => {
       el.addEventListener("mouseover", () => setLinkHovered(true));
       el.addEventListener("mouseout", () => setLinkHovered(false));
+    });
+    document.querySelectorAll(" div.hero-title").forEach((el) => {
+      el.addEventListener("mouseover", () => setHeroHovered(true));
+      el.addEventListener("mouseout", () => setHeroHovered(false));
     });
   };
 
@@ -104,7 +128,7 @@ const Cursor = () => {
       return Math.sqrt(distanceX ** 2 + distanceY ** 2) / dt;
     }
   };
-  console.log(getMouseSpeed());
+
   // do not render cursor on Mobile
   const isMobile = () => {
     const ua = navigator.userAgent;
@@ -116,7 +140,9 @@ const Cursor = () => {
     <Container
       className={`${hidden && "cursor--hidden"} ${
         clicked && "cursor--clicked"
-      } ${linkHovered && "cursor--link-hovered"}`}
+      } ${linkHovered && "cursor--link-hovered"} ${
+        heroHovered && "cursor--hero-hovered"
+      }`}
       left={`${position.x}px`}
       top={`${position.y}px`}
       accent={theme.colors.accent}

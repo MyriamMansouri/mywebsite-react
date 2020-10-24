@@ -7,26 +7,28 @@ const Nav = () => {
   const style = {
     color: "secondary",
     position: "relative",
-    fontSize: [3, 4, 5],
+    fontSize: [2,3, 4],
     ":hover,:focus,.active": {
       color: "secondary",
     },
     ":after": {
-      content: "'@'",
+      content: "'<>'",
       position: "absolute",
-      fontSize: [2],
+      borderRadius:'100%',
+      fontSize: [3],
       bottom: "0px",
-      left: "46%",
+      left: "43%",
       height: "10px",
       width: "10px",
-
+ 
       opacity: 0,
-      transition: "opacity 1000ms easy",
-      transitionProperty: "opacity",
+      transition: "all 300ms ease",
+
     },
     ":hover:after": {
       opacity: 1,
-      transition: "all 1000ms easy",
+      width: "20px",
+      height: "20px",
     },
     py: 3,
     pl: [2, 3],
