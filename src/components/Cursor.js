@@ -126,11 +126,9 @@ const style = (left, top, colors) => {
     }
 
     &.cursor--clicked {
-      width: 10px;
-      height: 10px;
       transform: translate(-50%, -50%) scale(0.5);
       mix-blend-mode: normal;
-      background-color: #fc2727;
+      background-color: ${accent1};
       animation: vibrate 1s infinite;
     }
     &.cursor--hero-hovered {

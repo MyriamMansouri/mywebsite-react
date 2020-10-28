@@ -18,7 +18,8 @@ const CustomThemeProvider = ({ children }) => {
     },
     variants: {
       link: {
-        textDecoration:'none'
+        textDecoration:'none',
+        color: 'inherit'
       }
     }
   };

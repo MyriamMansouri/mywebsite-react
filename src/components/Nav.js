@@ -9,7 +9,7 @@ const Nav = () => {
     position: "relative",
     fontSize: [2, 3, 4],
     ":hover,:focus,.active": {
-      color: "accent2",
+      color: "accent1",
     },
     ":after": {
       content: "''",
