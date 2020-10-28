@@ -4,11 +4,11 @@ import { ThemeProvider } from "emotion-theming";
 const CustomThemeProvider = ({ children }) => {
   const theme = {
     colors: {
-      primary: "#051044", //bleu
-      onPrimary: "#ffffff", //blanc
-      secondary: "#ffffff", //blanc
-      onSecondary: "#000000", //noir
-      accent: '#ff3d3d'
+      primary: "#ff3d3d", //pink red
+      bgPrimary:"#f0ffff", //light blue
+      onBg: "#000000", //noir
+      accent: 'yellow', //yellow
+      accent1: 'blue', //bright blue
     },
     space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
     fontSizes: [12, 14, 16, 24, 40, 60, 100, 128,176],

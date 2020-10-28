@@ -5,11 +5,11 @@ const Nav = () => {
   const navelements = ["projects", "about", "contact"];
 
   const style = {
-    color: "secondary",
+    color: "onSecondary",
     position: "relative",
     fontSize: [2, 3, 4],
     ":hover,:focus,.active": {
-      color: "secondary",
+      color: "accent2",
     },
     ":after": {
       content: "''",
@@ -18,8 +18,8 @@ const Nav = () => {
       bottom: "9px",
       left:  [2,3],
       height: "0px",
-      width: "30px",
-      bg: "secondary",
+      width: "20px",
+      bg: "onBg",
       opacity: 0,
       transition: "all 300ms ease",
     },

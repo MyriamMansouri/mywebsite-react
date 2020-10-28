@@ -11,7 +11,6 @@ const Header = () => {
       100% { transform: translate3d(0px,3px,0) rotate(-3deg) }
 `;
   const style = {
-    bg: "primary",
     px: [3, 4, 5],
     py: [3, 3, 4],
     alignItems: "center",
@@ -28,7 +27,7 @@ const Header = () => {
     <header>
       <Flex sx={style}>
         <Link sx={styleLink} variant="link" href={`#hello`}>
-          <Text fontWeight="bold" color="accent">{`<MM>`}</Text>
+          <Text fontWeight="bold" color="primary">{`<MM>`}</Text>
         </Link>
         <Box mx="auto" />
         <Nav />

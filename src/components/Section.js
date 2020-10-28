@@ -1,7 +1,7 @@
 import React from "react";
 import { Box } from "rebass";
 
-const Section = ({ children, sx }) => {
+const Section = ({ children, sx, id}) => {
   const style = {
     px: [3, 4, 5],
     py: [5, 5, 6],
@@ -10,9 +10,10 @@ const Section = ({ children, sx }) => {
   const styleContent = {
     maxWidth:'1500px',
     mx: "auto",
+
   }
   return (
-    <Box sx={{ ...style, ...sx }}>
+    <Box sx={{ ...style, ...sx }} id={id}>
       <Box sx={styleContent}>{children}</Box>
     </Box>
   );

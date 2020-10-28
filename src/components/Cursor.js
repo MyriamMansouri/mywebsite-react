@@ -1,57 +1,8 @@
 import React, { useState, useEffect } from "react";
 import usePrevious from "../hooks/usePrevious";
+import { Box } from "rebass";
+import { css } from "@emotion/core";
 import { useTheme } from "emotion-theming";
-import styled from "@emotion/styled";
-
-const Container = styled.div`
-  width: 30px;
-  height: 30px;
-  background-color: ${(props) => props.accent};
-  border-radius: 100%;
-  position: fixed;
-  transform: translate(-90%, -90%);
-  pointer-events: none;
-  z-index: 9999;
-  mix-blend-mode: darken;
-  transition: all 450ms ease;
-  transition-property: opacity, background-color, transform, mix-blend-mode;
-  left: ${(props) => props.left};
-  top: ${(props) => props.top};
-  &.cursor--hidden {
-    opacity: 0;
-  }
-
-  &.cursor--link-hovered {
-    transform: translate(-50%, -50%) scale(2);
-    background-color: ${(props) => props.accent};
-  }
-  
-  &.cursor--clicked {
-    width: 10px;
-    height: 10px;
-    transform: translate(-50%, -50%) scale(0.5);
-    mix-blend-mode: normal;
-    background-color: #fc2727;
-    animation: vibrate 1s infinite;
-  }
-  &.cursor--hero-hovered {
-    transform: translate(-50%, -50%) scale(7);
-    animation: color-change 500ms ease infinite;
-    transition: all 450ms ease;
-  }
-  @keyframes color-change {
-    0% {
-      background-color: blue;
-    }
-    25% {
-      background-color: yellow;
-     
-    }
-    50% {
-      background-color: ${(props) => props.accent};
-    }
-  }
-`;
 
 const Cursor = () => {
   const [position, setPosition] = useState({
@@ -63,8 +14,8 @@ const Cursor = () => {
   const [clicked, setClicked] = useState(false);
   const [linkHovered, setLinkHovered] = useState(false);
   const [heroHovered, setHeroHovered] = useState(false);
-  const theme = useTheme();
   const prevPosition = usePrevious(position);
+  const theme = useTheme();
 
   useEffect(() => {
     addEventListeners();
@@ -137,17 +88,68 @@ const Cursor = () => {
   if (typeof navigator !== "undefined" && isMobile()) return null;
 
   return (
-    <Container
+    <Box
       className={`${hidden && "cursor--hidden"} ${
         clicked && "cursor--clicked"
       } ${linkHovered && "cursor--link-hovered"} ${
         heroHovered && "cursor--hero-hovered"
       }`}
-      left={`${position.x}px`}
-      top={`${position.y}px`}
-      accent={theme.colors.accent}
+      css={style(`${position.x}px`, `${position.y}px`, theme.colors)}
     />
   );
+};
+
+const style = (left, top, colors) => {
+  const {primary, accent, accent1} = colors
+  return css`
+    width: 30px;
+    height: 30px;
+    background-color: ${primary};
+    border-radius: 100%;
+    position: fixed;
+    transform: translate(-90%, -90%);
+    pointer-events: none;
+    z-index: 9999;
+    mix-blend-mode: darken;
+    transition: all 450ms ease;
+    transition-property: opacity, background-color, transform, mix-blend-mode;
+    left: ${left};
+    top: ${top};
+
+    &.cursor--hidden {
+      opacity: 0;
+    }
+
+    &.cursor--link-hovered {
+      transform: translate(-50%, -50%) scale(2);
+      background-color: ${accent};
+    }
+
+    &.cursor--clicked {
+      width: 10px;
+      height: 10px;
+      transform: translate(-50%, -50%) scale(0.5);
+      mix-blend-mode: normal;
+      background-color: #fc2727;
+      animation: vibrate 1s infinite;
+    }
+    &.cursor--hero-hovered {
+      transform: translate(-50%, -50%) scale(7);
+      animation: color-change 500ms ease infinite;
+      transition: all 450ms ease;
+    }
+    @keyframes color-change {
+      0% {
+        background-color: ${accent};
+      }
+      25% {
+        background-color: ${accent1};
+      }
+      50% {
+        background-color: ${primary};
+      }
+    }
+  `;
 };
 
 export default Cursor;
