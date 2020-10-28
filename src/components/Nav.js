@@ -8,6 +8,7 @@ const Nav = () => {
     color: "onSecondary",
     position: "relative",
     fontSize: [2, 3, 4],
+    letterSpacing: "-2px",
     ":hover,:focus,.active": {
       color: "accent1",
     },

@@ -24,11 +24,11 @@ const Cursor = () => {
   }, []);
 
   const handleLinkHoverEvents = () => {
-    document.querySelectorAll(" a").forEach((el) => {
+    document.querySelectorAll("a, button").forEach((el) => {
       el.addEventListener("mouseover", () => setLinkHovered(true));
       el.addEventListener("mouseout", () => setLinkHovered(false));
     });
-    document.querySelectorAll(" div.hero-title").forEach((el) => {
+    document.querySelectorAll("div.hero-title").forEach((el) => {
       el.addEventListener("mouseover", () => setHeroHovered(true));
       el.addEventListener("mouseout", () => setHeroHovered(false));
     });

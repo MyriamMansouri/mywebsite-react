@@ -20,6 +20,10 @@ const CustomThemeProvider = ({ children }) => {
       link: {
         textDecoration:'none',
         color: 'inherit'
+      },
+      'unstyled-btn': {
+        bg:'accent',
+        fontFamily: 'inherit'
       }
     }
   };

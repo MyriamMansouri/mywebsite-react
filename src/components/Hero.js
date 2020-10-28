@@ -1,6 +1,7 @@
 import React from "react";
 import Section from "./Section";
 import { Flex, Heading, Text } from "rebass";
+import Adjective from "./Adjective";
 
 const Hero = () => {
   const styleHeading = {
@@ -10,10 +11,10 @@ const Hero = () => {
   const styleFlex = {
     flexWrap: "wrap",
     flexDirection: "column",
-    alignItems: "center",
+    letterSpacing: "-6px",
   };
 
-  const heroTitle = ["Myriam", "Mansouri"];
+  const heroTitle = ["I'm Myriam", "I build websites"];
   return (
     <Section id="hero">
       <Heading sx={styleHeading} as="h1">
@@ -22,8 +23,9 @@ const Hero = () => {
             <Text sx={{ cursor: "none" }} key={i} className="hero-title">
               {el}
             </Text>
+            
           ))}
-
+<Adjective/>
         </Flex>
       </Heading>
     </Section>
